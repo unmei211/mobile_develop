@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -70,53 +71,66 @@ fun Header() {
                 .width(628.dp)
                 .height(354.dp)
         )
-        Box(modifier = Modifier
-            .padding(top = 300.dp)
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.subicon),
-                contentDescription = "sub_icon",
-                modifier = Modifier.size(150.dp),
-                contentScale = ContentScale.Crop
+        HeaderTitle()
+    }
+    Row(modifier = Modifier
+        .padding(top = 16.dp, start = 24.dp, end = 112.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(text = "MOBA", modifier = Modifier
+            .background(color = Color(0x3d44a9f4), shape = RoundedCornerShape(size = 100.dp))
+        )
+    }
+}
+@Composable
+fun HeaderTitle() {
+    Box(modifier = Modifier
+        .padding(top = 300.dp)
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.subicon),
+            contentDescription = "sub_icon",
+            modifier = Modifier.size(150.dp),
+            contentScale = ContentScale.Crop
+        )
+        Image(
+            painter = painterResource(id = R.drawable.icon),
+            contentDescription = "icon",
+            modifier = Modifier
+                .size(100.dp)
+                .padding(start = 40.dp, top = 23.dp),
+            contentScale = ContentScale.Fit
+        )
+        Box(modifier = Modifier.padding(start = 124.dp, top = 50.dp)) {
+            Text(
+                text = "DoTA 2",
+                modifier = Modifier
+                    .width(70.dp)
+                    .height(26.dp),
+                style = TextStyle(
+                    fontSize = 20.sp,
+                    lineHeight = 26.sp,
+                    fontWeight = FontWeight(700),
+                    color = Color(0xFFFFFFFF),
+                    letterSpacing = 0.5.sp
+                )
             )
             Image(
-                painter = painterResource(id = R.drawable.icon),
-                contentDescription = "icon",
-                modifier = Modifier.size(100.dp)
-                    .padding(start = 40.dp, top = 23.dp),
-                contentScale = ContentScale.Fit
+                painter = painterResource(id = R.drawable.full_five_stars),
+                contentDescription = "stars",
+                contentScale = ContentScale.Fit,
+                modifier = Modifier.size(80.dp)
             )
-            Box(modifier = Modifier.padding(start = 124.dp, top = 50.dp)) {
-                Text(
-                    text = "DoTA 2",
-                    modifier = Modifier
-                        .width(70.dp)
-                        .height(26.dp),
-                    style = TextStyle(
-                        fontSize = 20.sp,
-                        lineHeight = 26.sp,
-                        fontWeight = FontWeight(700),
-                        color = Color(0xFFFFFFFF),
-                        letterSpacing = 0.5.sp
-                    )
-                )
-                Image(
-                    painter = painterResource(id = R.drawable.full_five_stars),
-                    contentDescription = "stars",
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier.size(80.dp)
-                )
-                Text(
-                    text = "70M",
-                    style = TextStyle(
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight(400),
-                        color = Color(0xFF45454D),
-                        letterSpacing = 0.5.sp
-                    ),
-                    modifier = Modifier.padding(top = 32.dp, start = 85.dp)
-                )
-            }
+            Text(
+                text = "70M",
+                style = TextStyle(
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight(400),
+                    color = Color(0xFF45454D),
+                    letterSpacing = 0.5.sp
+                ),
+                modifier = Modifier.padding(top = 32.dp, start = 85.dp)
+            )
         }
     }
 }
