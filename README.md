@@ -4,4 +4,6 @@
 Для запуска на своем устройстве: Build -> Build Bundle(s) / APK(s) -> Build APK(s)
                                  Результат в {project.dir}/app/build/outputs/apk/debug/apk-debug.apk
 
-![alt text](screens/first.png) 
+![scr1](screens/first.png) 
+
+![src2](screens/second.png)
