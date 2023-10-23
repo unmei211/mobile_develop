@@ -13,5 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "firstLaunch"
+rootProject.name = "DotaApp"
 include(":app")
+ 
