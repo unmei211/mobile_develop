@@ -29,11 +29,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.dotaapp.ui.theme.DotaAppTheme
@@ -59,24 +59,20 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-@Preview
 @Composable
 fun Header() {
     Surface(modifier = Modifier.fillMaxSize(), color = appBackgroundColor) {
         Image(
             painter = painterResource(id = R.drawable.source_dota_head),
-            contentDescription = "dota head",
+            contentDescription = stringResource(R.string.header_image_description),
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .width(628.dp)
-                .height(354.dp)
+                .width(headerImageWidth)
+                .height(headerImageHeight)
         )
         AppTitle()
     }
 }
-
-@Preview
 @Composable
 fun AppTitle() {
     Row(
@@ -84,12 +80,10 @@ fun AppTitle() {
         verticalAlignment = Alignment.Bottom
     ) {
         AppTitleIcon()
-        Spacer(modifier = Modifier.width(12.dp))
+        Spacer(modifier = Modifier.width(titleSpacerWidth))
         AppTitleSpecification()
     }
 }
-
-@Preview
 @Composable
 fun AppTitleIcon() {
     Box(contentAlignment = Alignment.Center) {
@@ -98,93 +92,82 @@ fun AppTitleIcon() {
             contentDescription = null,
             contentScale = ContentScale.Fit,
             modifier = Modifier
-                .width(88.dp)
-                .height(88.dp)
+                .width(titleBoxAll)
+                .height(titleBoxAll)
         )
         Image(
             painter = painterResource(id = R.drawable.dota_icon),
             contentDescription = "icon",
             contentScale = ContentScale.Fit,
             modifier = Modifier
-                .width(54.dp)
-                .height(54.dp)
+                .width(titleIconAll)
+                .height(titleIconAll)
         )
     }
 }
-
-@Preview
 @Composable
 fun AppTitleSpecification() {
     Column(modifier = Modifier.padding(bottom = 11.dp)) {
         Text(
-            "DoTA 2",
-            style = TextStyle(
-                letterSpacing = 0.5.sp,
-                fontSize = 20.sp,
-                color = Color.White,
-                lineHeight = 26.sp,
-                fontFamily = FontFamily(Font(R.font.sk_modernist_bold)),
-                fontWeight = FontWeight(700)
-            )
+            stringResource(id = R.string.header_title),
+            style = Typography.titleMedium
         )
+        Spacer(modifier = Modifier.height(titleSpecificationColumnSpacer))
         Row(verticalAlignment = Alignment.CenterVertically) {
             Image(
                 modifier = Modifier
-                    .width(76.dp)
-                    .height(12.dp),
+                    .width(titleStarsWidth)
+                    .height(titleStarsHeight),
                 painter = painterResource(id = R.drawable.five_stars),
-                contentDescription = "five stars",
+                contentDescription = stringResource(id = R.string.title_image_stars_rate),
                 contentScale = ContentScale.Fit
             )
-            Spacer(modifier = Modifier.width(10.dp))
+            Spacer(modifier = Modifier.width(titleSpecificationSpacer))
             Text(
-                "70M",
+                stringResource(id = R.string.downloads),
                 style = TextStyle(
                     fontSize = 12.sp,
                     fontWeight = FontWeight(400),
                     fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
-                    color = Color(0xFF45454D),
+                    color = titleCounterColor,
                     letterSpacing = 0.5.sp,
                 )
             )
         }
     }
 }
-
-@Preview
 @Composable
 
 fun AppDescription() {
     Row(modifier = Modifier.padding(start = 24.dp, top = 21.dp)) {
         val box_mod = Modifier
             .padding(end = 10.dp)
-            .background(color = Color(0x3D44A9F4), shape = RoundedCornerShape(size = 100.dp))
+            .background(color = tagsBackgroundColor, shape = RoundedCornerShape(size = 100.dp))
         val text_mod = Modifier.padding(start = 10.dp, top = 5.dp, end = 10.dp, bottom = 5.dp)
         val font_style = TextStyle(
             fontSize = 10.sp,
             fontFamily = FontFamily(Font(R.font.montserrat_regular)),
             fontWeight = FontWeight(500),
-            color = Color(0xFF44A9F4),
+            color = tagsTextColor,
         )
         Box(modifier = box_mod) {
-            Text(text = "MOBA", text_mod, style = font_style)
+            Text(text = stringResource(id = R.string.tag_1), text_mod, style = font_style)
         }
         Box(modifier = box_mod) {
-            Text(text = "MULTIPLAYER", text_mod, style = font_style)
+            Text(text = stringResource(id = R.string.tag_2), text_mod, style = font_style)
         }
         Box(modifier = box_mod) {
-            Text(text = "STRATEGY", text_mod, style = font_style)
+            Text(text = stringResource(id = R.string.tag_3), text_mod, style = font_style)
         }
     }
     Box(modifier = Modifier.padding(start = 21.dp, top = 29.dp, end = 24.dp)) {
-        val text =
-            "Dota 2 is a multiplayer online battle arena (MOBA) game which has two teams of five players compete to collectively destroy a large structure defended by the opposing team known as the \"Ancient\", whilst defending their own."
+        val text = stringResource(id = R.string.app_description)
         val font_style = TextStyle(
             fontSize = 12.sp,
             fontWeight = FontWeight(400),
             lineHeight = 19.sp,
             fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
-            color = Color(0xB2EEF2FB)
+            color = descriptionTextColor,
         )
         Text(text, style = font_style)
     }
@@ -198,37 +181,37 @@ fun AppScreens() {
             .padding(start = 24.dp, top = 15.dp)
     ) {
         var img_mod = Modifier
-            .width(240.dp)
-            .height(135.dp)
+            .width(screenshotsWidth)
+            .height(screenshotsHeight)
             .clip(shape = RoundedCornerShape(12.dp))
             .padding(end = 15.dp)
         Box(contentAlignment = Center) {
             Image(
                 painter = painterResource(id = R.drawable.screen_first),
-                contentDescription = "screen first with play",
+                contentDescription = stringResource(id = R.string.screen_first),
                 img_mod,
                 contentScale = ContentScale.Fit
             )
             Image(
                 painter = painterResource(id = R.drawable.eclipse),
-                contentDescription = "eclipse",
+                contentDescription = stringResource(id = R.string.eclipse),
                 modifier = Modifier
-                    .width(48.dp)
-                    .height(48.dp),
+                    .width(eclipseAll)
+                    .height(eclipseAll),
                 contentScale = ContentScale.Fit
             )
             Image(
                 painter = painterResource(id = R.drawable.arrow),
-                contentDescription = "arrow",
+                contentDescription = stringResource(id = R.string.arrow),
                 Modifier
-                    .width(24.dp)
-                    .height(24.dp),
+                    .width(eclipseArrowAll)
+                    .height(eclipseArrowAll),
                 contentScale = ContentScale.Fit
             )
         }
         Image(
             painter = painterResource(id = R.drawable.screen_second),
-            contentDescription = "screen 2",
+            contentDescription = stringResource(id = R.string.screen_second),
             img_mod,
             contentScale = ContentScale.Fit
         )
@@ -246,40 +229,40 @@ fun Reviews() {
 @Composable
 fun Average() {
     Text(
-        text = "Review & Ratings",
+        text = stringResource(id = R.string.review_title),
         style = TextStyle(
             fontSize = 16.sp,
             fontFamily = FontFamily(Font(R.font.sk_modernist_bold)),
             fontWeight = FontWeight(700),
-            color = Color(0xFFEEF2FB),
+            color = titleReviewsColor,
             letterSpacing = 0.6.sp
         ),
         modifier = Modifier.padding(bottom = 12.dp)
     )
     Row(verticalAlignment = Alignment.Top) {
         Text(
-            "4.9",
+            stringResource(id = R.string.app_rate),
             style = TextStyle(
                 fontSize = 48.sp,
                 fontFamily = FontFamily(Font(R.font.sk_modernist_bold)),
                 fontWeight = FontWeight(700),
-                color = Color(0xFFFFFFFF)
+                color = rateValueColor,
             )
         )
         Column(Modifier.padding(start = 16.dp, top = 12.dp)) {
             Image(
                 painter = painterResource(id = R.drawable.fourwithnitstars),
-                contentDescription = "4.5stars",
+                contentDescription = stringResource(id = R.string.review_stars_image),
                 modifier = Modifier
-                    .width(76.dp)
-                    .height(12.dp),
+                    .width(titleStarsWidth)
+                    .height(titleStarsHeight),
                 contentScale = ContentScale.Fit
             )
             Text(
-                text = "70M Reviews",
+                text = stringResource(id = R.string.downloads) + " " + stringResource(id = R.string.reviews),
                 style = TextStyle(
                     fontWeight = FontWeight(400),
-                    color = Color(0xFFA8ADB7),
+                    color = reviewCounterColor,
                     letterSpacing = 0.5.sp
                 ),
                 modifier = Modifier.padding(top = 8.dp)
@@ -297,21 +280,21 @@ fun ReviewListElement(name: String, data: String, imageId: Int, desc: String) {
         ) {
             Image(
                 painter = painterResource(id = imageId),
-                contentDescription = "photo",
+                contentDescription = stringResource(id = R.string.review_photo),
                 Modifier
-                    .width(36.dp)
-                    .height(36.dp)
+                    .width(avatarAll)
+                    .height(avatarAll)
                     .clip(shape = CircleShape),
                 contentScale = ContentScale.Crop
             )
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(reviewSpace))
             Column {
                 Text(
                     text = name, style = TextStyle(
                         fontSize = 16.sp,
                         fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
                         fontWeight = FontWeight(400),
-                        color = Color(0xFFFFFFFF),
+                        color = reviewerNameColor,
                         letterSpacing = 0.5.sp,
                     ),
                     modifier = Modifier.padding(bottom = 7.dp)
@@ -321,7 +304,7 @@ fun ReviewListElement(name: String, data: String, imageId: Int, desc: String) {
                         fontSize = 12.sp,
                         fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
                         fontWeight = FontWeight(400),
-                        color = Color(0x66FFFFFF),
+                        color = reviewDataColor,
                         letterSpacing = 0.5.sp,
                     )
                 )
@@ -333,7 +316,7 @@ fun ReviewListElement(name: String, data: String, imageId: Int, desc: String) {
                 lineHeight = 20.sp,
                 fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
                 fontWeight = FontWeight(400),
-                color = Color(0xFFA8ADB7),
+                color = reviewDescriptionColor,
                 letterSpacing = 0.5.sp,
             ),
             modifier = Modifier.padding(end = 24.dp)
@@ -345,24 +328,23 @@ fun ReviewListElement(name: String, data: String, imageId: Int, desc: String) {
 fun ReviewList() {
     Column(Modifier.padding(top = 30.dp)) {
         ReviewListElement(
-            name = "Auguste Conte",
-            data = "February 14, 2019",
+            name = stringResource(id = R.string.first_review_name),
+            data = stringResource(id = R.string.first_review_data),
             imageId = R.drawable.first_head,
-            desc = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"
+            desc = stringResource(id = R.string.first_review_desc),
         )
         Box(
             Modifier
                 .padding(top = 24.dp, bottom = 24.dp, start = 13.dp, end = 37.dp)
-                .height(1.dp)
-//                .background(Purple80)
-                .background(Color(0xFF1A1F29))
+                .height(borderHeight)
+                .background(borderBetweenReviewColor)
                 .fillMaxWidth()
         )
         ReviewListElement(
-            name = "Jang Marcelino",
-            data = "February 14, 2019",
+            name = stringResource(id = R.string.second_review_name),
+            data = stringResource(id = R.string.second_review_data),
             imageId = R.drawable.second_head,
-            desc = "“Once you start to learn its secrets, there’s a wild and exciting variety of play here that’s unmatched, even by its peers.”"
+            desc = stringResource(id = R.string.second_review_desc),
         )
     }
 }
@@ -373,14 +355,22 @@ fun Footer() {
         modifier = Modifier
             .fillMaxSize()
             .padding(start = 24.dp, end = 24.dp, top = 40.dp, bottom = 38.dp)
-            .width(327.dp)
-            .height(64.dp)
+            .width(footerButtonWidth)
+            .height(footerButtonHeight)
             .background(
-                Color(0xFFF4D144),
+                footerButtonBackground,
                 shape = RoundedCornerShape(size = 12.dp)
             ),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Install")
+        Text(
+            text = stringResource(id = R.string.footer_button),
+            style = TextStyle(
+                color = footerTextColor,
+                fontSize = 20.sp,
+                fontWeight = FontWeight(700),
+                letterSpacing = 0.6.sp,
+            )
+        )
     }
 }
