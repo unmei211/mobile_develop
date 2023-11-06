@@ -59,6 +59,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 @Composable
 fun Header() {
     Surface(modifier = Modifier.fillMaxSize(), color = appBackgroundColor) {
@@ -73,6 +74,7 @@ fun Header() {
         AppTitle()
     }
 }
+
 @Composable
 fun AppTitle() {
     Row(
@@ -84,6 +86,7 @@ fun AppTitle() {
         AppTitleSpecification()
     }
 }
+
 @Composable
 fun AppTitleIcon() {
     Box(contentAlignment = Alignment.Center) {
@@ -105,6 +108,7 @@ fun AppTitleIcon() {
         )
     }
 }
+
 @Composable
 fun AppTitleSpecification() {
     Column(modifier = Modifier.padding(bottom = 11.dp)) {
@@ -125,51 +129,38 @@ fun AppTitleSpecification() {
             Spacer(modifier = Modifier.width(titleSpecificationSpacer))
             Text(
                 stringResource(id = R.string.downloads),
-                style = TextStyle(
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight(400),
-                    fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
-                    color = titleCounterColor,
-                    letterSpacing = 0.5.sp,
-                )
+                style = Typography.displaySmall
             )
         }
     }
 }
+
 @Composable
 
 fun AppDescription() {
     Row(modifier = Modifier.padding(start = 24.dp, top = 21.dp)) {
-        val box_mod = Modifier
+        val boxMod = Modifier
             .padding(end = 10.dp)
             .background(color = tagsBackgroundColor, shape = RoundedCornerShape(size = 100.dp))
-        val text_mod = Modifier.padding(start = 10.dp, top = 5.dp, end = 10.dp, bottom = 5.dp)
-        val font_style = TextStyle(
-            fontSize = 10.sp,
-            fontFamily = FontFamily(Font(R.font.montserrat_regular)),
-            fontWeight = FontWeight(500),
-            color = tagsTextColor,
-        )
-        Box(modifier = box_mod) {
-            Text(text = stringResource(id = R.string.tag_1), text_mod, style = font_style)
+        val textMod = Modifier.padding(start = 10.dp, top = 5.dp, end = 10.dp, bottom = 5.dp)
+
+        val fontStyle = Typography.displayMedium
+
+        Box(modifier = boxMod) {
+            Text(text = stringResource(id = R.string.tag_1), textMod, style = fontStyle)
         }
-        Box(modifier = box_mod) {
-            Text(text = stringResource(id = R.string.tag_2), text_mod, style = font_style)
+        Box(modifier = boxMod) {
+            Text(text = stringResource(id = R.string.tag_2), textMod, style = fontStyle)
         }
-        Box(modifier = box_mod) {
-            Text(text = stringResource(id = R.string.tag_3), text_mod, style = font_style)
+        Box(modifier = boxMod) {
+            Text(text = stringResource(id = R.string.tag_3), textMod, style = fontStyle)
         }
     }
     Box(modifier = Modifier.padding(start = 21.dp, top = 29.dp, end = 24.dp)) {
-        val text = stringResource(id = R.string.app_description)
-        val font_style = TextStyle(
-            fontSize = 12.sp,
-            fontWeight = FontWeight(400),
-            lineHeight = 19.sp,
-            fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
-            color = descriptionTextColor,
+        Text(
+            stringResource(id = R.string.app_description),
+            style = Typography.bodySmall
         )
-        Text(text, style = font_style)
     }
 }
 
@@ -180,7 +171,7 @@ fun AppScreens() {
             .horizontalScroll(ScrollState(0))
             .padding(start = 24.dp, top = 15.dp)
     ) {
-        var img_mod = Modifier
+        var imgMod = Modifier
             .width(screenshotsWidth)
             .height(screenshotsHeight)
             .clip(shape = RoundedCornerShape(12.dp))
@@ -189,7 +180,7 @@ fun AppScreens() {
             Image(
                 painter = painterResource(id = R.drawable.screen_first),
                 contentDescription = stringResource(id = R.string.screen_first),
-                img_mod,
+                imgMod,
                 contentScale = ContentScale.Fit
             )
             Image(
@@ -212,7 +203,7 @@ fun AppScreens() {
         Image(
             painter = painterResource(id = R.drawable.screen_second),
             contentDescription = stringResource(id = R.string.screen_second),
-            img_mod,
+            imgMod,
             contentScale = ContentScale.Fit
         )
     }
@@ -230,24 +221,13 @@ fun Reviews() {
 fun Average() {
     Text(
         text = stringResource(id = R.string.review_title),
-        style = TextStyle(
-            fontSize = 16.sp,
-            fontFamily = FontFamily(Font(R.font.sk_modernist_bold)),
-            fontWeight = FontWeight(700),
-            color = titleReviewsColor,
-            letterSpacing = 0.6.sp
-        ),
+        style = Typography.titleSmall,
         modifier = Modifier.padding(bottom = 12.dp)
     )
     Row(verticalAlignment = Alignment.Top) {
         Text(
             stringResource(id = R.string.app_rate),
-            style = TextStyle(
-                fontSize = 48.sp,
-                fontFamily = FontFamily(Font(R.font.sk_modernist_bold)),
-                fontWeight = FontWeight(700),
-                color = rateValueColor,
-            )
+            style = Typography.titleLarge,
         )
         Column(Modifier.padding(start = 16.dp, top = 12.dp)) {
             Image(
@@ -260,11 +240,7 @@ fun Average() {
             )
             Text(
                 text = stringResource(id = R.string.downloads) + " " + stringResource(id = R.string.reviews),
-                style = TextStyle(
-                    fontWeight = FontWeight(400),
-                    color = reviewCounterColor,
-                    letterSpacing = 0.5.sp
-                ),
+                style = Typography.displayLarge,
                 modifier = Modifier.padding(top = 8.dp)
             )
         }
@@ -290,35 +266,19 @@ fun ReviewListElement(name: String, data: String, imageId: Int, desc: String) {
             Spacer(modifier = Modifier.width(reviewSpace))
             Column {
                 Text(
-                    text = name, style = TextStyle(
-                        fontSize = 16.sp,
-                        fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
-                        fontWeight = FontWeight(400),
-                        color = reviewerNameColor,
-                        letterSpacing = 0.5.sp,
-                    ),
+                    text = name,
+                    style = Typography.bodyLarge,
                     modifier = Modifier.padding(bottom = 7.dp)
                 )
                 Text(
-                    text = data, style = TextStyle(
-                        fontSize = 12.sp,
-                        fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
-                        fontWeight = FontWeight(400),
-                        color = reviewDataColor,
-                        letterSpacing = 0.5.sp,
-                    )
+                    text = data,
+                    style = Typography.labelSmall
                 )
             }
         }
         Text(
-            text = desc, style = TextStyle(
-                fontSize = 12.sp,
-                lineHeight = 20.sp,
-                fontFamily = FontFamily(Font(R.font.sk_modernist_regular)),
-                fontWeight = FontWeight(400),
-                color = reviewDescriptionColor,
-                letterSpacing = 0.5.sp,
-            ),
+            text = desc,
+            style = Typography.bodyMedium,
             modifier = Modifier.padding(end = 24.dp)
         )
     }
@@ -365,12 +325,7 @@ fun Footer() {
     ) {
         Text(
             text = stringResource(id = R.string.footer_button),
-            style = TextStyle(
-                color = footerTextColor,
-                fontSize = 20.sp,
-                fontWeight = FontWeight(700),
-                letterSpacing = 0.6.sp,
-            )
+            style = Typography.labelLarge,
         )
     }
 }
