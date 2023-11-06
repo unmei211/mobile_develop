@@ -22,28 +22,28 @@ import com.example.dotaapp.ui.theme.titleStarsWidth
 @Composable
 fun Average() {
     Text(
-        text = stringResource(id = R.string.review_title),
+        text = stringResource(id = R.string.review_title,),
         style = Typography.titleSmall,
-        modifier = Modifier.padding(bottom = 12.dp)
+        modifier = Modifier.padding(bottom = 12.dp,),
     )
-    Row(verticalAlignment = Alignment.Top) {
+    Row(verticalAlignment = Alignment.Top,) {
         Text(
             stringResource(id = R.string.app_rate),
             style = Typography.titleLarge,
         )
-        Column(Modifier.padding(start = 16.dp, top = 12.dp)) {
+        Column(Modifier.padding(start = 16.dp, top = 12.dp,),) {
             Image(
-                painter = painterResource(id = R.drawable.fourwithnitstars),
-                contentDescription = stringResource(id = R.string.review_stars_image),
+                painter = painterResource(id = R.drawable.fourwithnitstars,),
+                contentDescription = stringResource(id = R.string.review_stars_image,),
                 modifier = Modifier
-                    .width(titleStarsWidth)
-                    .height(titleStarsHeight),
-                contentScale = ContentScale.Fit
+                    .width(titleStarsWidth,)
+                    .height(titleStarsHeight,),
+                contentScale = ContentScale.Fit,
             )
             Text(
-                text = stringResource(id = R.string.downloads) + " " + stringResource(id = R.string.reviews),
+                text = stringResource(id = R.string.downloads,) + " " + stringResource(id = R.string.reviews,),
                 style = Typography.displayLarge,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier.padding(top = 8.dp,),
             )
         }
     }

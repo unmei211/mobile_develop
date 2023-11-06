@@ -16,25 +16,25 @@ import com.example.dotaapp.ui.theme.borderHeight
 
 @Composable
 fun ReviewList() {
-    Column(Modifier.padding(top = 30.dp)) {
+    Column(Modifier.padding(top = 30.dp,),) {
         ReviewListElement(
-            name = stringResource(id = R.string.first_review_name),
-            data = stringResource(id = R.string.first_review_data),
+            name = stringResource(id = R.string.first_review_name,),
+            data = stringResource(id = R.string.first_review_data,),
             imageId = R.drawable.first_head,
-            desc = stringResource(id = R.string.first_review_desc),
+            desc = stringResource(id = R.string.first_review_desc,),
         )
         Box(
             Modifier
-                .padding(top = 24.dp, bottom = 24.dp, start = 13.dp, end = 37.dp)
-                .height(borderHeight)
-                .background(borderBetweenReviewColor)
-                .fillMaxWidth()
+                .padding(top = 24.dp, bottom = 24.dp, start = 13.dp, end = 37.dp,)
+                .height(borderHeight,)
+                .background(borderBetweenReviewColor,)
+                .fillMaxWidth(),
         )
         ReviewListElement(
-            name = stringResource(id = R.string.second_review_name),
-            data = stringResource(id = R.string.second_review_data),
+            name = stringResource(id = R.string.second_review_name,),
+            data = stringResource(id = R.string.second_review_data,),
             imageId = R.drawable.second_head,
-            desc = stringResource(id = R.string.second_review_desc),
+            desc = stringResource(id = R.string.second_review_desc,),
         )
     }
 }

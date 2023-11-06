@@ -27,43 +27,43 @@ import com.example.dotaapp.ui.theme.screenshotsWidth
 fun AppScreens() {
     Row(
         Modifier
-            .horizontalScroll(ScrollState(0))
-            .padding(start = 24.dp, top = 15.dp)
+            .horizontalScroll(ScrollState(0),)
+            .padding(start = 24.dp, top = 15.dp,)
     ) {
         var imgMod = Modifier
-            .width(screenshotsWidth)
-            .height(screenshotsHeight)
-            .clip(shape = RoundedCornerShape(12.dp))
-            .padding(end = 15.dp)
-        Box(contentAlignment = Alignment.Center) {
+            .width(screenshotsWidth,)
+            .height(screenshotsHeight,)
+            .clip(shape = RoundedCornerShape(12.dp,),)
+            .padding(end = 15.dp,)
+        Box(contentAlignment = Alignment.Center,) {
             Image(
-                painter = painterResource(id = R.drawable.screen_first),
-                contentDescription = stringResource(id = R.string.screen_first),
+                painter = painterResource(id = R.drawable.screen_first,),
+                contentDescription = stringResource(id = R.string.screen_first,),
                 imgMod,
-                contentScale = ContentScale.Fit
+                contentScale = ContentScale.Fit,
             )
             Image(
-                painter = painterResource(id = R.drawable.eclipse),
-                contentDescription = stringResource(id = R.string.eclipse),
+                painter = painterResource(id = R.drawable.eclipse,),
+                contentDescription = stringResource(id = R.string.eclipse,),
                 modifier = Modifier
-                    .width(eclipseAll)
-                    .height(eclipseAll),
-                contentScale = ContentScale.Fit
+                    .width(eclipseAll,)
+                    .height(eclipseAll,),
+                contentScale = ContentScale.Fit,
             )
             Image(
-                painter = painterResource(id = R.drawable.arrow),
-                contentDescription = stringResource(id = R.string.arrow),
+                painter = painterResource(id = R.drawable.arrow,),
+                contentDescription = stringResource(id = R.string.arrow,),
                 Modifier
                     .width(eclipseArrowAll)
                     .height(eclipseArrowAll),
-                contentScale = ContentScale.Fit
+                contentScale = ContentScale.Fit,
             )
         }
         Image(
-            painter = painterResource(id = R.drawable.screen_second),
-            contentDescription = stringResource(id = R.string.screen_second),
+            painter = painterResource(id = R.drawable.screen_second,),
+            contentDescription = stringResource(id = R.string.screen_second,),
             imgMod,
-            contentScale = ContentScale.Fit
+            contentScale = ContentScale.Fit,
         )
     }
 }

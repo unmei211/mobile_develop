@@ -23,38 +23,38 @@ import com.example.dotaapp.ui.theme.avatarAll
 import com.example.dotaapp.ui.theme.reviewSpace
 
 @Composable
-fun ReviewListElement(name: String, data: String, imageId: Int, desc: String) {
+fun ReviewListElement(name: String, data: String, imageId: Int, desc: String,) {
     Column {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(bottom = 16.dp,),
         ) {
             Image(
-                painter = painterResource(id = imageId),
-                contentDescription = stringResource(id = R.string.review_photo),
+                painter = painterResource(id = imageId,),
+                contentDescription = stringResource(id = R.string.review_photo,),
                 Modifier
-                    .width(avatarAll)
-                    .height(avatarAll)
-                    .clip(shape = CircleShape),
-                contentScale = ContentScale.Crop
+                    .width(avatarAll,)
+                    .height(avatarAll,)
+                    .clip(shape = CircleShape,),
+                contentScale = ContentScale.Crop,
             )
-            Spacer(modifier = Modifier.width(reviewSpace))
+            Spacer(modifier = Modifier.width(reviewSpace,),)
             Column {
                 Text(
                     text = name,
                     style = Typography.bodyLarge,
-                    modifier = Modifier.padding(bottom = 7.dp)
+                    modifier = Modifier.padding(bottom = 7.dp,),
                 )
                 Text(
                     text = data,
-                    style = Typography.labelSmall
+                    style = Typography.labelSmall,
                 )
             }
         }
         Text(
             text = desc,
             style = Typography.bodyMedium,
-            modifier = Modifier.padding(end = 24.dp)
+            modifier = Modifier.padding(end = 24.dp,),
         )
     }
 }

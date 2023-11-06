@@ -17,28 +17,28 @@ import com.example.dotaapp.ui.theme.tagsBackgroundColor
 @Composable
 
 fun AppDescription() {
-    Row(modifier = Modifier.padding(start = 24.dp, top = 21.dp)) {
+    Row(modifier = Modifier.padding(start = 24.dp, top = 21.dp,)) {
         val boxMod = Modifier
-            .padding(end = 10.dp)
-            .background(color = tagsBackgroundColor, shape = RoundedCornerShape(size = 100.dp))
-        val textMod = Modifier.padding(start = 10.dp, top = 5.dp, end = 10.dp, bottom = 5.dp)
+            .padding(end = 10.dp,)
+            .background(color = tagsBackgroundColor, shape = RoundedCornerShape(size = 100.dp,),)
+        val textMod = Modifier.padding(start = 10.dp, top = 5.dp, end = 10.dp, bottom = 5.dp,)
 
         val fontStyle = Typography.displayMedium
 
-        Box(modifier = boxMod) {
-            Text(text = stringResource(id = R.string.tag_1), textMod, style = fontStyle)
+        Box(modifier = boxMod,) {
+            Text(text = stringResource(id = R.string.tag_1,), textMod, style = fontStyle,)
         }
-        Box(modifier = boxMod) {
-            Text(text = stringResource(id = R.string.tag_2), textMod, style = fontStyle)
+        Box(modifier = boxMod,) {
+            Text(text = stringResource(id = R.string.tag_2,), textMod, style = fontStyle,)
         }
-        Box(modifier = boxMod) {
-            Text(text = stringResource(id = R.string.tag_3), textMod, style = fontStyle)
+        Box(modifier = boxMod,) {
+            Text(text = stringResource(id = R.string.tag_3,), textMod, style = fontStyle,)
         }
     }
-    Box(modifier = Modifier.padding(start = 21.dp, top = 29.dp, end = 24.dp)) {
+    Box(modifier = Modifier.padding(start = 21.dp, top = 29.dp, end = 24.dp,),) {
         Text(
-            stringResource(id = R.string.app_description),
-            style = Typography.bodySmall
+            stringResource(id = R.string.app_description,),
+            style = Typography.bodySmall,
         )
     }
 }

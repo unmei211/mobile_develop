@@ -24,17 +24,17 @@ fun Footer() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(start = 24.dp, end = 24.dp, top = 40.dp, bottom = 38.dp)
-            .width(footerButtonWidth)
-            .height(footerButtonHeight)
+            .padding(start = 24.dp, end = 24.dp, top = 40.dp, bottom = 38.dp,)
+            .width(footerButtonWidth,)
+            .height(footerButtonHeight,)
             .background(
                 footerButtonBackground,
-                shape = RoundedCornerShape(size = 12.dp)
+                shape = RoundedCornerShape(size = 12.dp,),
             ),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Text(
-            text = stringResource(id = R.string.footer_button),
+            text = stringResource(id = R.string.footer_button,),
             style = Typography.labelLarge,
         )
     }

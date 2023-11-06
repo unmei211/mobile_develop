@@ -16,9 +16,9 @@ import com.example.dotaapp.ui.theme.appBackgroundColor
 @Composable
 fun FirstPage() {
     DotaAppTheme {
-        Surface(modifier = Modifier.fillMaxSize(), color = appBackgroundColor) {
+        Surface(modifier = Modifier.fillMaxSize(), color = appBackgroundColor,) {
             Column(
-                modifier = Modifier.verticalScroll(ScrollState(0))
+                modifier = Modifier.verticalScroll(ScrollState(0,),)
             ) {
                 Header()
                 Body()

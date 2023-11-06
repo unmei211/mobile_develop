@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Reviews() {
-    Column(Modifier.padding(start = 24.dp, top = 20.dp)) {
+    Column(Modifier.padding(start = 24.dp, top = 20.dp,),) {
         Average()
         ReviewList()
     }
