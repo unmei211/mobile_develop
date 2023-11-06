@@ -13,16 +13,11 @@ import androidx.compose.ui.unit.dp
 import com.example.dotaapp.R
 import com.example.dotaapp.ui.theme.borderBetweenReviewColor
 import com.example.dotaapp.ui.theme.borderHeight
-
+import com.example.dotaapp.firstpage.data.*
 @Composable
 fun ReviewList() {
     Column(Modifier.padding(top = 30.dp,),) {
-        ReviewListElement(
-            name = stringResource(id = R.string.first_review_name,),
-            data = stringResource(id = R.string.first_review_data,),
-            imageId = R.drawable.first_head,
-            desc = stringResource(id = R.string.first_review_desc,),
-        )
+        ReviewListElement(reviewerFirst)
         Box(
             Modifier
                 .padding(top = 24.dp, bottom = 24.dp, start = 13.dp, end = 37.dp,)
@@ -30,11 +25,6 @@ fun ReviewList() {
                 .background(borderBetweenReviewColor,)
                 .fillMaxWidth(),
         )
-        ReviewListElement(
-            name = stringResource(id = R.string.second_review_name,),
-            data = stringResource(id = R.string.second_review_data,),
-            imageId = R.drawable.second_head,
-            desc = stringResource(id = R.string.second_review_desc,),
-        )
+        ReviewListElement(reviewerSecond)
     }
 }

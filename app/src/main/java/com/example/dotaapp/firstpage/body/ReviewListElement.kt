@@ -18,19 +18,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.dotaapp.R
+import com.example.dotaapp.firstpage.models.Person
 import com.example.dotaapp.ui.theme.Typography
 import com.example.dotaapp.ui.theme.avatarAll
 import com.example.dotaapp.ui.theme.reviewSpace
 
 @Composable
-fun ReviewListElement(name: String, data: String, imageId: Int, desc: String,) {
+fun ReviewListElement(person: Person) {
     Column {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(bottom = 16.dp,),
         ) {
             Image(
-                painter = painterResource(id = imageId,),
+                painter = painterResource( id = person.imageId,),
                 contentDescription = stringResource(id = R.string.review_photo,),
                 Modifier
                     .width(avatarAll,)
@@ -41,18 +42,18 @@ fun ReviewListElement(name: String, data: String, imageId: Int, desc: String,) {
             Spacer(modifier = Modifier.width(reviewSpace,),)
             Column {
                 Text(
-                    text = name,
+                    text = stringResource(id = person.nameId,),
                     style = Typography.bodyLarge,
                     modifier = Modifier.padding(bottom = 7.dp,),
                 )
                 Text(
-                    text = data,
+                    text = stringResource(id = person.dataId,),
                     style = Typography.labelSmall,
                 )
             }
         }
         Text(
-            text = desc,
+            text = stringResource(id = person.descId,),
             style = Typography.bodyMedium,
             modifier = Modifier.padding(end = 24.dp,),
         )
